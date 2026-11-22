@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const pages = await getCollection('pages');
+
+  return [
+    ...posts.map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry, kind: 'post' as const },
+    })),
+    ...pages.map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry, kind: 'page' as const },
+    })),
+  ];
+}
+
+const { entry, kind } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout title={`${entry.data.title} — Boa Esperança`} description={entry.data.description}>
+  <article class="card">
+    <p style="font-family: -apple-system, sans-serif; font-size: 0.82rem; color: var(--muted); margin: 0 0 8px;">
+      {kind === 'post' ? 'Publicação' : 'Página'} &middot;{' '}
+      <time datetime={entry.data.pubDate.toISOString()}>
+        {entry.data.pubDate.toISOString().slice(0, 10)}
+      </time>
+      {'category' in entry.data && entry.data.category ? ` · ${entry.data.category}` : ''}
+    </p>
+    <h1 style="margin: 0 0 18px; font-size: 1.9rem; color: var(--azulejo);">{entry.data.title}</h1>
+    <div>
+      <Content />
+    </div>
+    <p style="margin: 28px 0 0; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <a href="/">&larr; Voltar à página inicial</a>
+    </p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Boa Esperança Crest">
+  <rect width="128" height="128" rx="24" fill="#103b66"/>
+  <rect x="10" y="10" width="108" height="108" rx="18" fill="none" stroke="#e5ddd0" stroke-width="4"/>
+  <circle cx="64" cy="64" r="34" fill="#b45309"/>
+  <path d="M64 34 L74 56 L98 58 L79 74 L85 97 L64 84 L43 97 L49 74 L30 58 L54 56 Z" fill="#faf7f2"/>
+</svg>

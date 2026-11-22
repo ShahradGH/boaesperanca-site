@@ -1,0 +1,5 @@
+/wp-content/uploads/* /uploads/:splat 301
+/2016/05/10/hello-world/ /hello-world/ 301
+/2016/05/10/hello-world /hello-world/ 301
+/feed/ /rss.xml 301
+/feed /rss.xml 301

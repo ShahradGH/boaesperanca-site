@@ -1,0 +1,9 @@
+{
+  "site": "boaesperanca.net",
+  "migratedFrom": "WordPress (boaesperanca_wp)",
+  "auditedUploadFilesCount": 0,
+  "auditedDirectoryInodeFootprintKb": 232,
+  "preservedPosts": ["hello-world"],
+  "preservedPages": ["sample-page"],
+  "redirectRule": "/wp-content/uploads/* /uploads/:splat 301"
+}
