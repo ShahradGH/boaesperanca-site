@@ -4,6 +4,21 @@ Static cultural and community website built with **Astro** and **Sveltia CMS**, 
 
 ---
 
+## Visual Topology
+
+```mermaid
+flowchart LR
+    Visitors["Public Visitors (boaesperanca.net & www 301)"] --> Middleware["Pages Middleware (functions/_middleware.ts www->apex 301)"]
+    Middleware --> StaticPages["Cloudflare Pages Static Bundle (Astro, _headers OWASP, _redirects, sitemap-index.xml)"]
+
+    Editors["Content Editors (/admin Sveltia CMS)"] --> OAuthProxy["Pages Functions OAuth Proxy (/api/auth & /api/callback HMAC State Cookie)"]
+    OAuthProxy <--> GitHubOAuth["GitHub OAuth & Repo (ShahradGH/boaesperanca-site main)"]
+    GitHubOAuth --> CI["GitHub Actions deploy.yml (typecheck, astro build, tests, wrangler pages deploy)"]
+    CI --> StaticPages
+```
+
+---
+
 ## Architecture & Capabilities
 
 - **Static Edge Hosting**: Built cleanly into static HTML/XML/assets (`output: 'static'` in `astro.config.mjs`) and served globally via **Cloudflare Pages** (`https://boaesperanca.net`), retiring the legacy PHP/MariaDB runtime.
