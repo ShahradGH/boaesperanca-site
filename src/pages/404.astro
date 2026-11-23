@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Página não encontrada (404) — Boa Esperança"
+  description="O endereço solicitado não foi encontrado no arquivo cultural da Boa Esperança."
+  noindex={true}
+>
+  <section class="card" style="border-top: 4px solid var(--terracotta);">
+    <p style="font-family: -apple-system, sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--terracotta); margin: 0 0 8px;">
+      Erro 404
+    </p>
+    <h1 style="margin: 0 0 12px; font-size: 1.9rem; color: var(--azulejo); line-height: 1.25;">
+      Página não encontrada
+    </h1>
+    <p style="margin: 0 0 12px;">
+      O endereço procurado não existe ou foi movido durante a actualização do arquivo da Boa Esperança.
+    </p>
+    <p style="margin: 0 0 22px; font-size: 0.95rem; color: var(--muted);">
+      The requested page could not be found in the Boa Esperança cultural archive.
+    </p>
+    <p style="margin: 0; font-family: -apple-system, sans-serif; font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 16px;">
+      <a href="/">&larr; Voltar à página inicial</a>
+      <a href="/hello-world/">Crónicas</a>
+      <a href="/sample-page/">Sobre</a>
+      <a href="/rss.xml">Subscrever RSS</a>
+    </p>
+  </section>
+</BaseLayout>

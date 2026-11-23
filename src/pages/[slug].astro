@@ -21,7 +21,12 @@ export async function getStaticPaths() {
 const { entry, kind } = Astro.props;
 const { Content } = await render(entry);
 ---
-<BaseLayout title={`${entry.data.title} — Boa Esperança`} description={entry.data.description}>
+<BaseLayout
+  title={`${entry.data.title} — Boa Esperança`}
+  description={entry.data.description}
+  ogType={kind === 'post' ? 'article' : 'website'}
+  publishedTime={entry.data.pubDate.toISOString()}
+>
   <article class="card">
     <p style="font-family: -apple-system, sans-serif; font-size: 0.82rem; color: var(--muted); margin: 0 0 8px;">
       {kind === 'post' ? 'Publicação' : 'Página'} &middot;{' '}
